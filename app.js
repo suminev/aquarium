@@ -5,6 +5,7 @@ const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
 
 const COUNT_FISH = 50;
+const allFish = [];
 
 function random(min, max, withZero = true) {
     let num = Math.floor(Math.random() * (max - min)) + min;
@@ -44,8 +45,6 @@ class Fish {
 
 }
 
-const allFish = [];
-
 while (allFish.length < COUNT_FISH) {
     const fish = new Fish(
         random(0 + 100, width - 100),
@@ -58,7 +57,10 @@ while (allFish.length < COUNT_FISH) {
 
 
 function loop() {
-    // ctx.fillRect(0, 0, width, height);
+    img_fon = new Image();
+    img_fon.src = `./img/fon.jpg`;
+    ctx.fillStyle = ctx.createPattern(img_fon, "repeat");
+    ctx.fillRect(0, 0, width, height);
 
     for (const fish of allFish) {
         fish.draw();
