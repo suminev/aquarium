@@ -24,7 +24,6 @@ function randomRGB() {
 
 
 class Fish {
-
     constructor(x, y, velX, velY) {
         this.x = x;
         this.y = y;
@@ -43,6 +42,26 @@ class Fish {
         ctx.drawImage(this.img_fish, this.x, this.y);
     }
 
+    update() {
+        if ((this.x + this.img_fish.width) >= width) {
+            this.velX = -(this.velX);
+        }
+
+        if (this.x <= 0) {
+            this.velX = -(this.velX);
+        }
+
+        if ((this.y + this.img_fish.height) >= height) {
+            this.velY = -(this.velY);
+        }
+
+        if (this.y <= 0) {
+            this.velY = -(this.velY);
+        }
+
+        this.x += this.velX;
+        this.y += this.velY;
+    }
 }
 
 while (allFish.length < COUNT_FISH) {
@@ -64,6 +83,7 @@ function loop() {
 
     for (const fish of allFish) {
         fish.draw();
+        fish.update();
     }
 
     requestAnimationFrame(loop);
