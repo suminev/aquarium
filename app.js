@@ -12,7 +12,7 @@ function random(min, max, withZero = true) {
     if(withZero){
         return num;
     }
-    while(!num){
+    while(num === 0){
         num = Math.floor(Math.random() * (max - min)) + min;
     }
     return num;
