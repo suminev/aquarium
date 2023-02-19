@@ -18,10 +18,6 @@ function random(min, max, withZero = true) {
     return num;
 };
 
-function randomRGB() {
-    return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
-}
-
 
 class Fish {
     constructor(x, y, velX, velY) {
