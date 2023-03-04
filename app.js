@@ -62,8 +62,8 @@ class Fish {
 
 while (allFish.length < COUNT_FISH) {
     const fish = new Fish(
-        random(0 + 100, width - 100),
-        random(0 + 100, height - 100),
+        random(0 + 200, width - 200),
+        random(0 + 200, height - 200),
         random(-3, 3, false),
         random(-1, 1, false),
     );
